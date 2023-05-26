@@ -5,7 +5,7 @@ using DragonBattle.Core.Models;
 
 Console.WriteLine("Que inicie la batalla de caballeros y dragones!");
 
-const int battleCountOfOpponents = 12;
+const int battleCountOfOpponents = 100;
 
 var dragons = CreateDragonsList(battleCountOfOpponents);
 var knights = CreateKnightsList(battleCountOfOpponents);

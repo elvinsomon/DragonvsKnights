@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DragonBattle", "DragonBattl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DragonBattle.Core", "DragonBattle.Core\DragonBattle.Core.csproj", "{6B861070-7883-41EF-90A9-943AC8773371}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DragonsSide.SocketClient", "DragonsSide.SocketClient\DragonsSide.SocketClient.csproj", "{81723571-133E-4EE2-A410-666CA600F07F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightsSide.SokectClient", "KnightsSide.SokectClient\KnightsSide.SokectClient.csproj", "{9CC2E861-4D33-4DFE-A2BD-966267457BA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{6B861070-7883-41EF-90A9-943AC8773371}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B861070-7883-41EF-90A9-943AC8773371}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B861070-7883-41EF-90A9-943AC8773371}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81723571-133E-4EE2-A410-666CA600F07F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81723571-133E-4EE2-A410-666CA600F07F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81723571-133E-4EE2-A410-666CA600F07F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81723571-133E-4EE2-A410-666CA600F07F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CC2E861-4D33-4DFE-A2BD-966267457BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CC2E861-4D33-4DFE-A2BD-966267457BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CC2E861-4D33-4DFE-A2BD-966267457BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CC2E861-4D33-4DFE-A2BD-966267457BA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
