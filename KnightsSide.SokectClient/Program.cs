@@ -1,3 +1,14 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using SocketsInfrastructure;
 
-Console.WriteLine("KinghtsSide");
+Console.WriteLine("Hello from Knights Side!");
+
+var client = new SocketClient(ServerConfigConstants.IpAddress, ServerConfigConstants.Port);
+client.Start();
+
+var message = string.Empty;
+while (true)
+{
+    Console.Write("Enter a message: ");
+    message = Console.ReadLine();
+    client.Send(message);
+}

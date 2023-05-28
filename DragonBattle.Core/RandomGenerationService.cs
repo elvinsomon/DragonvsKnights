@@ -1,6 +1,6 @@
 using DragonBattle.Core.Models;
 
-namespace DragonBattle;
+namespace DragonBattle.Core;
 
 public static class RandomGenerationService
 {
