@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\DragonBattle.Core\DragonBattle.Core.csproj" />
+    </ItemGroup>
+
 </Project>

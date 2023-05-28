@@ -2,23 +2,14 @@ using DragonBattle.Core.Models;
 
 namespace DragonBattle.Core;
 
-public class Battle
+public class BattleServices
 {
-    private readonly List<Opponent> _opponents = new();
+    public int DragonsDied = 0;
+    public int KnightsDied = 0;
 
-    public int DragonsDied => _opponents.Count(x => x.Winner == OpponentType.Knight);
-    public int KnightsDied => _opponents.Count(x => x.Winner == OpponentType.Dragon);
-
-    public Battle(List<Opponent> opponents)
+    public void StartCombat(object? ob)
     {
-        ArgumentNullException.ThrowIfNull(_opponents);
-        _opponents = opponents;
-    }
-
-    public async Task StartTheBattleParallel() => await Parallel.ForEachAsync(_opponents, StartCombat);
-
-    private static ValueTask StartCombat(Opponent opponent, CancellationToken cancellationToken)
-    {
+        var opponent = (BattleOpponent)ob!;
         var dragon = opponent.Dragon;
         var knight = opponent.Knight;
 
@@ -39,7 +30,7 @@ public class Battle
             if (knight.IsDead)
             {
                 Console.WriteLine($"{dragon.Name} has slain {knight.Name}!\n\n\n");
-                opponent.Winner = OpponentType.Dragon;
+                KnightsDied++;
                 break;
             }
 
@@ -48,11 +39,9 @@ public class Battle
             if (dragon.IsDead)
             {
                 Console.WriteLine($"{knight.Name} has slain {dragon.Name}!");
-                opponent.Winner = OpponentType.Knight;
+                DragonsDied++;
                 break;
             }
         }
-
-        return ValueTask.CompletedTask;
     }
 }

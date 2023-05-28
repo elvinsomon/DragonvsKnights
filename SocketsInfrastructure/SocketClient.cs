@@ -24,4 +24,13 @@ public class SocketClient
         var buffer = Encoding.UTF8.GetBytes(message);
         _socketClient.Send(buffer);
     }
+    
+    public string Receive()
+    {
+        var buffer = new byte[1024];
+        _socketClient.Receive(buffer);
+        var message = Encoding.UTF8.GetString(buffer);
+        message = message.Replace("\0", string.Empty);
+        return message;
+    }
 }
