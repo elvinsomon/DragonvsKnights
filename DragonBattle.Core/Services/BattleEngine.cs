@@ -2,7 +2,7 @@ using DragonBattle.Core.Models;
 
 namespace DragonBattle.Core;
 
-public class BattleServices
+public class BattleEngine
 {
     public int DragonsDied = 0;
     public int KnightsDied = 0;

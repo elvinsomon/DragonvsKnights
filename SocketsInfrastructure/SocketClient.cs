@@ -25,7 +25,7 @@ public class SocketClient
         _socketClient.Send(buffer);
     }
     
-    public string Receive()
+    public string ReceiveAcknowledge()
     {
         var buffer = new byte[1024];
         _socketClient.Receive(buffer);

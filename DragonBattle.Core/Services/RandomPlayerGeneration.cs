@@ -2,7 +2,7 @@ using DragonBattle.Core.Models;
 
 namespace DragonBattle.Core;
 
-public static class RandomGenerationService
+public static class RandomPlayerGeneration
 {
     public static Player CreatePlayer(PlayerType playerType, int index)
     {

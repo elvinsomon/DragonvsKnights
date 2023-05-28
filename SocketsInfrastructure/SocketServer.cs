@@ -10,7 +10,7 @@ namespace SocketsInfrastructure;
 public class SocketServer
 {
     private bool _battleIsOver = false;
-    private BattleServices _battleServices = new();
+    private BattleEngine _battleEngine = new();
     private List<Player> _dragons = new();
     private List<Player> Knight = new();
     private List<BattleOpponent> BattleOpponents = new();
@@ -76,18 +76,27 @@ public class SocketServer
                 return;
             
             _battleIsOver = true;
-            var winner = _battleServices.DragonsDied < _battleServices.KnightsDied ? "Dragons" : "Knights";
-            Console.WriteLine("The battle is over. One of the participants has left the game.");
+            string winner;
+            
+            if (_battleEngine.DragonsDied < _battleEngine.KnightsDied)
+                winner = "Dragons";
+            else if (_battleEngine.DragonsDied > _battleEngine.KnightsDied)
+                winner = "Knights";
+            else
+                winner = "No one";
+            
+            Console.WriteLine("\n\n\nThe battle is over. One of the participants has left the game.");
+            //Console.WriteLine($"Socket error: {ex.Message}");
             Console.WriteLine("Battle results: ");
-            Console.WriteLine($"Dragons Died: {_battleServices.DragonsDied}");
-            Console.WriteLine($"Knights Died: {_battleServices.KnightsDied}");
+            Console.WriteLine($"Dragons Died: {_battleEngine.DragonsDied}");
+            Console.WriteLine($"Knights Died: {_battleEngine.KnightsDied}");
             Console.WriteLine($"The winner is: {winner}");
         }
     }
 
     private void StartNewCombat()
     {
-        var thread = new Thread(_battleServices.StartCombat);
+        var thread = new Thread(_battleEngine.StartCombat);
         thread.Start(BattleOpponents.First());
 
         BattleOpponents.Remove(BattleOpponents.First());

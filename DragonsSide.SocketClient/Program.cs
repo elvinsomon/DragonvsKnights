@@ -11,11 +11,11 @@ var index = 1;
 
 while (true)
 {
-    var newPlayer = CreateDragon(index);
+    var newPlayer = RandomPlayerGeneration.CreatePlayer(PlayerType.Dragon, index);
     var messageToSend = JsonSerializer.Serialize(newPlayer);
     client.Send(messageToSend);
-
-    var messageReceived = client.Receive();
+    
+    var messageReceived = client.ReceiveAcknowledge();
     if (messageReceived is ServerConfigConstants.BATTLE_IS_OVER)
     {
         Console.WriteLine("\n\n\n---------------------------------------");
@@ -24,12 +24,10 @@ while (true)
         Console.WriteLine("---------------------------------------");
         return;
     }
-
+    
     Console.WriteLine($"A new {newPlayer.Name} was sent!");
     index++;
 
     Console.WriteLine("Waiting for send a new Dragon...");
     Thread.Sleep(3000);
 }
-
-Player CreateDragon(int id) => RandomGenerationService.CreatePlayer(PlayerType.Dragon, id);
